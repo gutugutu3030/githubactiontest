@@ -1,25 +1,30 @@
-# Name of the workflow
-name: Clang-Format
-
-# Controls when the action will run. Triggers the workflow on push for all branches
-on: push
-
-# Defines the main job where we checkout our code, run clang-format
-# and commit changes
+name: clang-format
+on: 
+  push:
+    branches:
+      - develop
+      - master
+  pull_request:
+    branches:
+      - develop
+      - master
 jobs:
-  clang-format:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-18.04
     steps:
-    # Checks-out our repository under $GITHUB_WORKSPACE, so our job can access it
-    - uses: actions/checkout@v2
-
-    # Applies clang-format to all C/C++ files w/ the specified style
-    - name: Apply clang-format
-      id: formatting
-      uses: amete/clang-format-action@v0.2
+    - uses: actions/checkout@v1
+    - name: install tools
+      run: |
+        sudo add-apt-repository 'deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main'
+        sudo apt update
+        sudo apt install clang-format
+        git config --global user.email "octocat@example.com"
+        git config --global user.name "octocat"
+    - name: refactor
+      run: |
+        clang-format -i -style=file Test.cpp
+        git add .
+        git commit -m 'refactor by Github Actions'
+    - uses: ad-m/github-push-action@master
       with:
-        style: 'Google'
-
-    # Gets and prints the output message
-    - name: Get the output message
-      run: echo "${{ steps.formatting.outputs.message }}"
+        github_token: ${{ secrets.GITHUB_TOKEN }}
