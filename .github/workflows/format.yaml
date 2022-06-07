@@ -16,7 +16,7 @@ jobs:
 
       - name: Format code
         run: |
-          find /src -type f \( -name *.h -o -name *.cpp -o -name *.hpp \) | xargs clang-format -i
+          find /src -type f \( -name *.h -o -name *.cpp -o -name *.hpp \) | xargs clang-format -style=Google -i
 
       - name: create Format File
         run: |
