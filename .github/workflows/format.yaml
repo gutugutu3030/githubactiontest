@@ -20,7 +20,7 @@ jobs:
 
       - name: Format code
         run: |
-          clang-format -i -style=file Test.cpp
+          find src/ -iname *.h -o -iname *.cpp | xargs clang-format -i
 
       - name: Commit and Push
         run: |
