@@ -3,7 +3,7 @@
 Test
 {
 public:
-    Test();
+    Test(   );
     void A();
 
 private:
