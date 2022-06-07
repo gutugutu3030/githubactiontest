@@ -18,6 +18,10 @@ jobs:
         run: |
           find /src -type f \( -name *.h -o -name *.cpp -o -name *.hpp \) | xargs clang-format -i
 
+      - name: create Format File
+        run: |
+          clang-format -style=Google -dump-config > .clang-format
+
       - name: Commit and Push
         run: |
           git add -N .
