@@ -1,13 +1,13 @@
 #include "Test.h"
 
-Test::Test() : a(1)
+Test::Test()
+  : a(1)
 {
-// a digitalRead()
 
-
-
-　　}
-void Test::A()
+  　　
+}
+void
+Test::A()
 {
-    a++;
+  a++;
 }
