@@ -16,8 +16,11 @@ jobs:
 
       - name: Format code
         run: |
-          ls /home/runner/work/githubactiontest/githubactiontest
-          find src -iname '*.h' -o -iname '*.cpp' -o -iname '*.hpp' | xargs clang-format -i -style=file
+          find src -iname '*.h' -o -iname '*.cpp' -o -iname '*.hpp' | xargs clang-format -i -style=Google
+
+      - name: create Formatter
+        run: |
+          clang-format -style=Google -dump-config > .clang-format
 
       - name: Commit and Push
         run: |
