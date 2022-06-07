@@ -6,11 +6,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          # sudo apt install clang-format
-          echo "Hello GitHub Actions!" >> hello.txt
+          sudo add-apt-repository 'deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main'
+          sudo apt install clang-format
+          # echo "Hello GitHub Actions!" >> hello.txt
           git config --global user.email "octocat@example.com"
           git config --global user.name "octocat"
-          # clang-format -i -style=file Test.cpp
+          clang-format -i -style=file Test.cpp
           git add .
           git commit -m 'refactor by Github Actions'
           git push
