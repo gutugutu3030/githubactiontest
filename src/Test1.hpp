@@ -1,8 +1,7 @@
 #pragma once
 
-class OhTest
-{
-public:
+class OhTest {
+ public:
   OhTest(){
 
   };

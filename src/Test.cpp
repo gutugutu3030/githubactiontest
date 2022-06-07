@@ -1,13 +1,6 @@
 #include "Test.h"
 
-Test::Test()
-  : a(1)
-{
+Test::Test() : a(1) {
 
-  　　
-}
-void
-Test::A()
-{
-  a++;
-}
+  　　 }
+void Test::A() { a++; }
