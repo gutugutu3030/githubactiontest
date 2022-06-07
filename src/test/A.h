@@ -2,9 +2,8 @@
 
 class OhTest2 {
  public:
-  OhTest2 (){
+  OhTest2(){
 
   };
-  void ok
-   ( ){ };
+  void ok(){};
 };
