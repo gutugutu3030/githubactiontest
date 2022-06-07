@@ -1,10 +1,10 @@
 #pragma once
 
 Test {
-public:
+ public:
   Test();
   void A();
 
-private:
+ private:
   int a;
 };
