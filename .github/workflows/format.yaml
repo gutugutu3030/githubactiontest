@@ -15,16 +15,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: install tools
-        run: |
+      - run: |
           sudo apt install clang-format
           git config --global user.email "octocat@example.com"
           git config --global user.name "octocat"
-      - name: refactor
-        run: |
           clang-format -i -style=file Test.cpp
           git add .
           git commit -m 'refactor by Github Actions'
-      - uses: push
-        run: |
           git push origin
