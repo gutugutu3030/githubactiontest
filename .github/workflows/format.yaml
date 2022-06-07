@@ -17,11 +17,7 @@ jobs:
       - name: Format code
         run: |
           path=$(cd $(dirname $0);pwd)
-          find path/src -type f \( -name \*.h -or -name \*.hpp -or -name \*.cpp \)  | xargs clang-format -style=Google -i
-
-      - name: create Format File
-        run: |
-          clang-format -style=Google -dump-config > .clang-format
+          find $path/src -type f \( -name \*.h -or -name \*.hpp -or -name \*.cpp \)  | xargs clang-format -i
 
       - name: Commit and Push
         run: |
