@@ -1,9 +1,5 @@
 name: clang-format
-on: 
-  push:
-    branches:
-    - develop
-    - master
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
