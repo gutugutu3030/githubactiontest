@@ -16,7 +16,7 @@ jobs:
 
       - name: Format code
         run: |
-          clang-format -i -style=Google **/*.cpp **/*.h **/*.hpp
+          clang-format -i **/*.cpp **/*.h **/*.hpp
 
       - name: Commit and Push
         run: |
