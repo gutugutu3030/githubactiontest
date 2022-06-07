@@ -3,7 +3,7 @@
 class OhTest1
 {
 public:
-  OhTest1(){
+  OhTest1( ){
 
   };
   void ok(){};
