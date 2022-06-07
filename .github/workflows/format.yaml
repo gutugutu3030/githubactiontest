@@ -12,7 +12,7 @@ jobs:
 
       - name: Setup formatter
         run: |
-          sudo apt install -y clang-format
+          sudo apt install --no-install-recommends -y clang-format
 
       - name: Format code
         run: |
