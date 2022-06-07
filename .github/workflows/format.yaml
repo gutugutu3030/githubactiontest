@@ -13,8 +13,6 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
       - run: |
           sudo apt install clang-format
           git config --global user.email "octocat@example.com"
