@@ -16,7 +16,7 @@ jobs:
 
       - name: Format code
         run: |
-          find src -type f \( -name \*.h -or -name \*.hpp -or -name \*.cpp \)  | xargs clang-format -i
+          find . -iname 'src/*.h' -o -iname 'src/*.cpp' -o -iname 'src/*.hpp'  | xargs clang-format -i
 
       - name: Commit and Push
         run: |
