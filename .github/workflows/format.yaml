@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          sudo add-apt-repository 'deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main'
+          # sudo add-apt-repository 'deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main'
           sudo apt install clang-format
           # echo "Hello GitHub Actions!" >> hello.txt
           git config --global user.email "octocat@example.com"
