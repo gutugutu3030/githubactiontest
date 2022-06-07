@@ -10,14 +10,15 @@ on:
     - master
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: |
           sudo apt install clang-format
+          echo "Hello GitHub Actions!" >> hello.txt
           git config --global user.email "octocat@example.com"
           git config --global user.name "octocat"
           clang-format -i -style=file Test.cpp
           git add .
           git commit -m 'refactor by Github Actions'
-          git push origin
+          git push
