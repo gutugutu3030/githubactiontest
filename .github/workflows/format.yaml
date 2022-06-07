@@ -1,7 +1,43 @@
-name: learn-github-actions
-on: [push]
+name: clang-format
+on: 
+  push:
+    branches:
+      - develop
+      - master
+  pull_request:
+    branches:
+      - develop
+      - master
+
 jobs:
-  check-bats-version:
+  formatting-check:
+    name: Formatting Check
     runs-on: ubuntu-latest
     steps:
-      - run: echo "this is pen"
+    - uses: actions/checkout@v2
+    - name: Run clang-format style check for C/C++/Protobuf programs.
+      uses: jidicula/clang-format-action@v4.6.2
+      with:
+        clang-format-version: '14'
+        check-path: 'src'
+  # build:
+  #   runs-on: ubuntu-18.04
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  #     - name: install tools
+  #       run: |
+  #         sudo add-apt-repository 'deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main'
+  #         sudo apt update
+  #         sudo apt install clang-format
+  #         git config --global user.email "octocat@example.com"
+  #         git config --global user.name "octocat"
+  #     - name: refactor
+  #       run: |
+  #         clang-format -i -style=file main.cpp
+  #         git add .
+  #         git commit -m 'refactor by Github Actions'
+  #     - name: push
+  #       run: |
+  #         git push origin
