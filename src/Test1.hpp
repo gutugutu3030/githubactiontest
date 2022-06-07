@@ -1,10 +1,9 @@
 #pragma once
 
-class OhTest
-{
-public:
-    OhTest(){
+class OhTest {
+ public:
+  OhTest(){
 
-    };
-    void ok(){};
+  };
+  void ok(){};
 };
