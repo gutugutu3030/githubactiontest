@@ -16,8 +16,7 @@ jobs:
 
       - name: Format code
         run: |
-          path=$(cd $(dirname $0);pwd)
-          find $path/src -type f \( -name \*.h -or -name \*.hpp -or -name \*.cpp \)  | xargs clang-format -i
+          find src -type f \( -name \*.h -or -name \*.hpp -or -name \*.cpp \)  | xargs clang-format -i
 
       - name: Commit and Push
         run: |
